@@ -12,8 +12,14 @@
 	body{
 		background-color: indigo;
 	}
-	nav{
-		height: 80px;
+	.login .card{
+		margin-top: 25%;
+	}
+	.login .card input{
+		margin-bottom:4em;
+	}
+	.login .card button{
+		margin-top:5em;
 	}
 
 </style>
@@ -26,49 +32,64 @@
 					<a href="index.html"><img class="responsive-img" width="95px" src="images/logo.png">
 					</a>	
 			</div>
-		</nav>
+	</nav>
 
 <!--Login form -->
-		<div class="row">
-			<div class="col s12 l8 offset-l2">
-				<div class="card">
-					<div class="card-image red " >
-						<img width="100%" height="25%" src="images/logo.png">
+		<div class="row login">
+			<div class="col s10 offset-s1 l4 offset-l4">
+				<div class="card black">
+					<div class="card-content  blue-text lighten-3">
+					<div class="card-title center-align">
+						<h1>Login Here</h1>
 					</div>
-					<div class="card-content">
-					<div class="card-title center-align">Login Here</div>
-						<form action="">
-							<input type="text" name="Email" placeholder="Email Or Userid" required>
-							<input id="pswd" type="password" placeholder="Password" required>
-							<label>
-						        <input type="checkbox" id="lol">
-						        <span>See Password</span>
-						    </label>
-						    <br><br>
-						    <button class="btn">submit</button>
-						</form>
-					</div>
+						<form action="#" method="post">
+				          <input class="uid white-text" type="text" placeholder="Userid">
+						<input class="pswd white-text" type="password" placeholder="Password">
+						<label>
+					        <input type="checkbox" id="lol" />
+					        <span class="red-text">See Password</span>
+					    </label>
+					        <button type="submit" class="btn-large waves-effect waves-light blue black-text submit" style="width:100%">Submit</button>
+					  </form>
 				</div>
 			</div>
 		</div>
+	</div>
 
 
 
 </body>
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
+
+	/*password seen button*/
 	$(document).ready(function(){
 		$('#lol').click(function(){
 			if($(this).is(':checked'))
 			{
 				console.log('seen');
-				$('#pswd').attr('type','text');
+				$('.pswd').attr('type','text');
 			}
 			else{
 				console.log('hide');
-				$('#pswd').attr('type','password');
+				$('.pswd').attr('type','password');
 			}
-	});
+		});
+
+/*get email and password*/
+		$('.submit').click(function()
+		{
+			var email = $('.uid').val();
+			var password = $('.pswd').val();
+			$('val').html(email);
+		});
+
+
+
+
+
+
+
 });
 </script>
 </html>
