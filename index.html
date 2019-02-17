@@ -10,14 +10,20 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <style type="text/css">
 body{
+	background-color: #424242;
+}
+.login{
 	background-image: url('images/iot.png');
 	background-size: cover;
 }
-	form label{
-		font-size: 30px;
+.login .card{
+	background: rgba(0,0,0,.2);
+}
+	.login label{
+		font-size: 20px;
 	}
 	form label span{
-		font-size: 30px;
+		font-size: 20px;
 	}
 	.full-width{
 		height:100vh;
@@ -27,47 +33,126 @@ body{
 </head>
 <body>
 
-<div id="second">
-	HI admin
-</div>
-
 <!--Login form -->
-<div id="first">
-	<div class="row login">
-		<div class="col s12 m4 offset-m4 ">
+<div class="container login">
+	<div class="row">
+		<div class="col s12 m8 offset-m2 ">
 			<div class="card">
 					<div class="card-action center-align red-text black">
-						<h1>Login Here</h1>
+					<h2>Login Here</h2>
 					</div>
 					<div class="card-content">
-					<form action="#" method="POST">
-						<label>User ID:</label>
-						<input type="text" class="uid" >
-					<br><br>
 
-					
-						<label >Password:</label>
-						<input type="password" class="pswd">
-					<br>
+						<div class="input-field">
+							<label>User Id:</label><br><br>
+				          <input  class="uid" type="text">
+				        </div>
 
-					
-						<label>
-						<input type="checkbox" class="lol">
-						<span><h6>See Password</h6></span>
-					</label>
-					<br><br>
-					
+						<div class="input-field">
+							<label>Password:</label><br><br>
+				          <input  class="pswd" type="password">
+				        </div>
+
+				        <label>
+							<input type="checkbox" class="lol">
+							<span><h6>See Password</h6></span>
+						</label>
+
+						<br><br>
 						<button type="Submit" style="width: 100%; height:auto;" class="btn-large black red-text submit">
-							<h3>Submit</h3>
+						<h3>Submit</h3>
 						</button>
-					</form>
-
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+<div id="second">
+	
 
+<div class="container">
+    		<div class="red white-text center lol">
+    		<h5 > Welcome  Into  Our </h5>
+    		<h6 > Smart  Home </h6>
+    		</div>
+    	</div>
+
+
+    <div class="row">
+		<div class="col s12 m8 offset-m2 ">
+			<div class="card">
+					<div class="card-action center-align red-text black">
+					<h2>Load 1</h2>
+					</div>
+					<div class="card-content">
+						<div class="switch">
+					    <label>
+					      Off
+					      <input type="checkbox">
+					      <span class="lever"></span>
+					      On
+					    </label>
+					  </div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+    	<div class="col s12 m8 offset-m2 ">
+			<div class="card">
+					<div class="card-action center-align red-text black">
+					<h2>Load 2</h2>
+					</div>
+					<div class="card-content">
+						<div class="switch">
+					    <label>
+					      Off
+					      <input type="checkbox">
+					      <span class="lever"></span>
+					      On
+					    </label>
+					  </div>
+					</div>
+				</div>
+			</div>
+
+    	<div class="col s12 m8 offset-m2 ">
+			<div class="card">
+					<div class="card-action center-align red-text black">
+					<h2>Load 3</h2>
+					</div>
+					<div class="card-content">
+						<div class="switch">
+					    <label>
+					      Off
+					      <input type="checkbox">
+					      <span class="lever"></span>
+					      On
+					    </label>
+					  </div>
+					</div>
+				</div>
+			</div>
+
+		<div class="col s12 m8 offset-m2 ">
+			<div class="card">
+					<div class="card-action center-align red-text black">
+					<h2>Load 4</h2>
+					</div>
+					<div class="card-content">
+						<div class="switch">
+					    <label>
+					      Off
+					      <input type="checkbox">
+					      <span class="lever"></span>
+					      On
+					    </label>
+					  </div>
+					</div>
+				</div>
+			</div>
+
+</div>
 
 
 
@@ -86,7 +171,7 @@ body{
 
 	/*password seen button*/
 	$(document).ready(function(){
-		$("#second").hide();
+		$('#second').hide();
 		$('.lol').click(function(){
 			if($(this).is(':checked'))
 			{
@@ -106,19 +191,17 @@ body{
 
 			// Checking for blank fields.
 			if( email =='' || password ==''){
-					$('input[type="text"],input[type="password"]').css("border","2px solid red");
-					$('input[type="text"],input[type="password"]').css("box-shadow","0 0 3px red");
 					alert("Please fill all fields...!!!!!!");
 					}
 			else {
-					if( email =='nareen' || password =='12345'){
-					alert("You're logged in!!!");
-					$("#first").hide();
-            		$("#second").show();
+					if( email =='me' && password =='me'){
+					$("#second").show();
+                    $(".login").hide();
 					}
-					else{
-						alert("vaag saale");
-					}
+                    else
+                    {
+                    alert("vaag saale");
+                    }
 				}
 	});
 			        
