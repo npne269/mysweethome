@@ -6,14 +6,21 @@
 	<!--<link rel="stylesheet" type="text/css" href="css/materialize.min.css">-->
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
+<style type="text/css">
+	form label{
+		font-size: 30px;
+	}
+	form button{
+		font-size: 50px;
+	}
+</style>
 </head>
 <body>
 
 <!--Login form -->
 <div id="first">
 		<div class="row login">
-			<div class="col s12 l4 offset-l4">
+			<div class="col m6 offset-m3">
 
 				<div class="card">
 					<div class="card-action center-align red-text black">
@@ -21,13 +28,13 @@
 					</div>
 					<div class="card-content">
 					<form action="#" method="POST">
-						<label>User Id</label>
-						<input type="text" class="uid" >
+						<input type="text" id="uid" >
+						<label for="uid">Email</label>
 					<br><br>
 
 					
 						<label for="pswd">Password</label>
-						<input type="password" class="pswd">
+						<input type="password" id="pswd">
 					<br>
 
 					
@@ -38,7 +45,9 @@
 					<br><br><br>
 					<br><br><br>
 					
-						<input type="Submit" style="width: 100%;" class="btn black red-text submit">
+						<button type="Submit" style="width: 100%;" class="btn-large black red-text submit">
+							Submit
+						</button>
 					</form>
 
 				</div>
@@ -46,8 +55,45 @@
 		</div>
 	</div>
 </div>
-<div id="second">
-	hi
+<!--test2-->
+<div class="container">
+    <div class="row">
+        <div class="col m6">
+            <h2 class="center-align">Login</h2>
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="email" type="email" class="validate">
+                            <label for="email">Email</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="pass" type="password" class="validate">
+                            <label for="pass">Password</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12">
+                            <p>
+                                <input type="checkbox" id="remember">
+                                <label for="remember">Remember me</label>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="row">
+                        <div class="col m12">
+                            <p class="right-align">
+                                <button class="btn btn-large waves-effect waves-light" type="button" name="action">Login</button>
+                            </p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 
 
