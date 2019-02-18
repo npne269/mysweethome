@@ -1,3 +1,4 @@
+﻿
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,14 +13,14 @@
 body{
 	background-color: #424242;
 }
-.login{
+.getd{
 	background-image: url('images/iot.png');
 	background-size: cover;
 }
-.login .card{
+.getd .card{
 	background: rgba(0,0,0,.2);
 }
-	.login label{
+	.getd label{
 		font-size: 20px;
 	}
 	form label span{
@@ -34,43 +35,98 @@ body{
 <body>
 
 <!--Login form -->
-<div class="container login">
+<div class="container login getd">
 	<div class="row">
-		<div class="col s12 m8 offset-m2 ">
+		<div class="col s12 m8 offset-m2 l6">
 			<div class="card">
 					<div class="card-action center-align red-text black">
 					<h2>Login Here</h2>
 					</div>
 					<div class="card-content">
-
+					<form action="login.php" method="POST">
 						<div class="input-field">
 							<label>User Id:</label><br><br>
-				          <input  class="uid" type="text">
+				          <input  class="uid" type="text" name="userid" >
 				        </div>
 
 						<div class="input-field">
 							<label>Password:</label><br><br>
-				          <input  class="pswd" type="password">
+				          <input  class="pswd" type="password" name="passid">
 				        </div>
 
 				        <label>
 							<input type="checkbox" class="lol">
 							<span><h6>See Password</h6></span>
 						</label>
-
+						<div class="jkl red white-text"></div>
 						<br><br>
-						<button type="Submit" style="width: 100%; height:auto;" class="btn-large black red-text submit">
-						<h3>Submit</h3>
+						<div class="row">
+							<div class="col s6">
+
+						<button type="Submit" style=" height:auto;" class="btn-large black red-text submit">
+						Login
 						</button>
+					</div>
+						<div class="col s6">
+						<a id="reg" class="btn-large">SignUp</a>
+						</div>
+					</div>
+					</form>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-<div id="second">
-	
 
-<div class="container">
+
+<!--signin form -->
+<div class="container signin getd">
+	<div class="row">
+		<div class="col s12 m8 offset-m2 l6">
+			<div class="card">
+					<div class="card-action center-align red-text black">
+					<h2>Sign Up</h2>
+					</div>
+					<div class="card-content">
+					<form action="registration.php" method="POST">
+						<div class="input-field">
+							<label>User Id:</label><br><br>
+				          <input  class="uid" type="text" name="userid" >
+				        </div>
+
+						<div class="input-field">
+							<label>Password:</label><br><br>
+				          <input  class="pswd" type="password" name="passid">
+				        </div>
+
+				        <label>
+							<input type="checkbox" class="lol">
+							<span><h6>See Password</h6></span>
+						</label>
+						<div class="jkl red white-text"></div>
+						<br><br>
+
+						<div class="row">
+							<div class="col s6">
+
+						<button type="Submit" style=" height:auto;" class="btn-large black red-text submit">
+						SignIn
+						</button>
+					</div>
+						<div class="col s6">
+						<a id="reg2" class="btn-large">Login</a>
+						</div>
+					</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!--<div id="second">
+	<div class="container">
     		<div class="red white-text center lol">
     		<h5 > Welcome  Into  Our </h5>
     		<h6 > Smart  Home </h6>
@@ -151,8 +207,9 @@ body{
 				</div>
 			</div>
 		</div>
-</div>
+</div>-->
 
+<div class="mno"></div>
 
 
 <footer class="page-footer black">
@@ -170,7 +227,24 @@ body{
 
 	/*password seen button*/
 	$(document).ready(function(){
-		$('#second').hide();
+
+		$('.signin').hide();
+		$('#reg').click(function(){
+			$('.signin').show();
+			$('.login').hide();
+
+		});
+
+		$('#reg2').click(function(){
+			$('.login').show();
+			$('.signin').hide();
+
+		});
+
+
+
+
+
 		$('.lol').click(function(){
 			if($(this).is(':checked'))
 			{
@@ -184,34 +258,44 @@ body{
 		});
 
 /*get email and password*/
-		$(".submit").click(function(){
-           	var email = $(".uid").val();
-			var password = $(".pswd").val();
+	/*var frm = $(".submit");
+	console.log('var created');
 
+		frm.click(function(e){
+			console.log('submitted');
+           	var userid = $(".uid").val();
+			var passid = $(".pswd").val();
 			// Checking for blank fields.
-			if( email =='' || password ==''){
-					alert("Please fill all fields...!!!!!!");
+			if( userid =='' || passid ==''){
+					$('.jkl').html("Please fill all fields...!!!!!!");
 					}
 			else {
-					if( email =='me' && password =='me'){
-					$("#second").show();
-                    $(".login").hide();
-					}
-                    else
-                    {
-                    alert("vaag saale");
-                    }
+				console.log('data');
+					$.ajax({
+						url: "login.php",
+						method: "POST",
+						data: {userid:userid,passid:passid},
+						success: function(data)
+						{
+							console.log(data);
+							if(data == 'yes')
+							{
+								$("#second").show();
+								$(".login").hide();
+								alert('WOW,you are logged in!!');
+					            
+				       		 }
+				       		 else{
+				       		 	alert('Wrong');
+
+				       		 }
+
+
+						}
+
+					});
 				}
-	});
-			        
-
-        /*$("#logout").click(function() {
-            $("form")[0].reset();
-            $("#first").show();
-            $("#second").hide();
-        });*/
-
-
+	});*/
 });
 </script>
 </html>
